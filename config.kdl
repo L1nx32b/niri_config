@@ -149,7 +149,7 @@ environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
   QT_QPA_PLATFORMTHEME "gtk3"
   QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-  TERMINAL "ghostty"
+  TERMINAL "kitty"
 }
 hotkey-overlay {
     skip-at-startup
@@ -259,7 +259,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // === Application Launchers ===
-    Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    // 终端
+    Mod+T hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
+    // 应用
     Mod+Space hotkey-overlay-title="Application Launcher" {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle";
     }
