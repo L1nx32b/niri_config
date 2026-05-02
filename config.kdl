@@ -230,10 +230,11 @@ window-rule {
     match app-id="kitty"
     draw-border-with-background false
 }
-window-rule {
-    match is-active=false
-    opacity 0.9
-}
+// 非活动窗口模糊
+//window-rule {
+//    match is-active=false
+//    opacity 0.9
+//}
 window-rule {
     match app-id="reminder"
     open-floating true // 作为浮动窗口打开
@@ -448,6 +449,8 @@ binds {
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
+    // 开启flameshot截图 使用xdg-desktop-portal方式解决flameshot在wayland下截图出现图片蒙上灰层问题
+    Mod+Shift+S { spawn "bash" "-c" "QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=sway flameshot gui"; }
 }
 debug {
     honor-xdg-activation-with-invalid-serial
